@@ -1,0 +1,40 @@
+name: Build desktop packages
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "desktop-v*"
+
+jobs:
+  macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter config --enable-macos-desktop
+      - run: flutter pub get
+      - run: bash scripts/package_macos.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: UATH-NFC-Bridge-macos
+          path: dist/UATH-NFC-Bridge-macos-*
+
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter config --enable-windows-desktop
+      - run: flutter pub get
+      - run: powershell -ExecutionPolicy Bypass -File scripts/package_windows.ps1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: UATH-NFC-Bridge-windows
+          path: dist/UATH-NFC-Bridge-windows-*

@@ -1,0 +1,40 @@
+name: flutter_pcsc_windows
+description: Windows implementation of the flutter_pcsc plugin for using PCSC smartcard readers.
+version: 0.0.3
+repository: https://github.com/fabienrousseau/flutter_pcsc
+publish_to: "none"
+
+environment:
+  sdk: ">=2.14.0 <4.0.0"
+  flutter: ">=1.20.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  ffi: ^1.0.0
+  flutter_pcsc_platform_interface: ^0.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.0
+  ffigen: ^4.0.0
+
+# Patched: upstream sets pluginClass to `none`, which breaks generated
+# registrants on modern Flutter. FFI-only — dartPluginClass is enough.
+flutter:
+  plugin:
+    implements: flutter_pcsc
+    platforms:
+      windows:
+        dartPluginClass: PcscWindows
+
+ffigen:
+  name: NativeLibraryWinscard
+  description: Bindings to winscard.dll
+  output: "generated_bindings.dart"
+  headers:
+    entry-points:
+      - "headers/winscard.h"
+    include-directives:
+      - "**winscard.h"
