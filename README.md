@@ -4,7 +4,7 @@ Localhost companion that reads USB NFC cards (ACR122U) and sends MRNs to the
 UATH staff EMR over `ws://127.0.0.1:8787`.
 
 Keep this app open while using the staff portal. Quit other NFC tools (e.g. NFC
-Tools) first — the reader can only be used by one app at a time.
+Tools) first - the reader can only be used by one app at a time.
 
 ## Install (release packages)
 
@@ -18,8 +18,8 @@ make package-macos
 
 Produces:
 
-- `dist/UATH-NFC-Bridge-macos-<version>.dmg` — drag **UATH NFC Bridge** into Applications
-- `dist/UATH-NFC-Bridge-macos-<version>.zip` — unzip and run the `.app`
+- `dist/UATH-NFC-Bridge-macos-<version>.dmg` - drag **UATH NFC Bridge** into Applications
+- `dist/UATH-NFC-Bridge-macos-<version>.zip` - unzip and run the `.app`
 
 First launch on another Mac: right-click the app → **Open** (Gatekeeper). For
 hospital-wide distribution, sign with an Apple Developer ID and notarize.

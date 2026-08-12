@@ -29,7 +29,7 @@ String? parseMrnFromNtagUserMemory(List<int> userBytes) {
   return normalizeMrn(_asciiSnippet(ndefBytes));
 }
 
-/// Accepts `UATH/PT/{digits}` or bare 1–8 digits.
+/// Accepts `UATH/PT/{digits}` or bare 1-8 digits.
 String? normalizeMrn(String? raw) {
   if (raw == null) {
     return null;

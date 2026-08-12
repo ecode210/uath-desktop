@@ -91,11 +91,11 @@ class _HomePageState extends State<HomePage> {
     final theme = Theme.of(context);
     final needsRecovery = _state.readerNeedsRecovery;
     final readerLabel = needsRecovery
-        ? 'Needs recovery — unplug USB reader, then Retry Reader'
+        ? 'Needs recovery - unplug USB reader, then Retry Reader'
         : _state.reading
             ? 'Reading…'
             : _state.readerConnected
-                ? 'Connected — ${_shortReaderName(_state.readerName)}'
+                ? 'Connected - ${_shortReaderName(_state.readerName)}'
                 : 'Not detected';
     final emrLabel = !_state.wsListening
         ? (_state.wsError ?? 'WebSocket not listening')

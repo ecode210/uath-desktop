@@ -1,0 +1,20 @@
+---
+description: Use ASCII hyphens instead of em-dashes or en-dashes
+alwaysApply: true
+---
+
+# No em-dash or en-dash
+
+Never use em-dashes (`—`, U+2014) or en-dashes (`–`, U+2013) in code, UI copy, comments, or docs.
+
+Always use a regular ASCII hyphen (`-`) instead.
+
+## Examples
+
+```dart
+// ✅
+value.isEmpty ? '-' : value
+
+// ❌
+value.isEmpty ? '—' : value
+```

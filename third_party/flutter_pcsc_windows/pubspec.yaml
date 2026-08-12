@@ -21,7 +21,7 @@ dev_dependencies:
   ffigen: ^4.0.0
 
 # Patched: upstream sets pluginClass to `none`, which breaks generated
-# registrants on modern Flutter. FFI-only — dartPluginClass is enough.
+# registrants on modern Flutter. FFI-only - dartPluginClass is enough.
 flutter:
   plugin:
     implements: flutter_pcsc

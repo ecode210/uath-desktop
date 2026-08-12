@@ -80,7 +80,7 @@ class NfcReaderService {
       }
       _lastHeartbeat = DateTime.now();
       await _spawnIsolate();
-      _logMain('NFC: manual recover — reader isolate started');
+      _logMain('NFC: manual recover - reader isolate started');
     } finally {
       _restarting = false;
     }
@@ -154,7 +154,7 @@ class NfcReaderService {
 
       final backoffMs = math.min(8000, 400 * (1 << (_consecutiveRestarts - 1)));
       hub.setReadError(
-        'NFC reader stalled — recovering (attempt $_consecutiveRestarts of '
+        'NFC reader stalled - recovering (attempt $_consecutiveRestarts of '
         '$_maxConsecutiveRestarts). Keep the card off the pad for a moment.',
       );
       await Future<void>.delayed(Duration(milliseconds: backoffMs));
@@ -174,7 +174,7 @@ class NfcReaderService {
     hub.setReadError(message);
     hub.setReaderStatus(connected: false, name: '');
     hub.setReading(false);
-    _logMain('NFC: entered manual recovery — waiting for Retry Reader');
+    _logMain('NFC: entered manual recovery - waiting for Retry Reader');
   }
 
   void _onIsolateMessage(dynamic message) {
@@ -452,7 +452,7 @@ Future<_PollResult> _pollOnce(
   } catch (error) {
     final next = idleLogCounter + 1;
     if (kDebugMode && (next == 1 || next % 20 == 0)) {
-      _log(toMain, 'NFC: idle (no card) — $error');
+      _log(toMain, 'NFC: idle (no card) - $error');
     }
     return _PollResult(
       connected: true,
@@ -542,7 +542,7 @@ Future<_PollResult> _pollOnce(
         _log(
           toMain,
           incomplete
-              ? 'NFC: incomplete NDEF on attempt $attempt — will retry'
+              ? 'NFC: incomplete NDEF on attempt $attempt - will retry'
               : 'NFC: MRN parse failed for uid=$uid attempt=$attempt',
         );
 

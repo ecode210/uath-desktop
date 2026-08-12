@@ -38,7 +38,7 @@ class BridgeWsServer {
     } catch (error) {
       hub.setWsListening(
         false,
-        error: 'Port ${BridgeProtocol.port} unavailable — quit other bridge '
+        error: 'Port ${BridgeProtocol.port} unavailable - quit other bridge '
             'instances and keep this window open.',
       );
       _retryTimer?.cancel();
